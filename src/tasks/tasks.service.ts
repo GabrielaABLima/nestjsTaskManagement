@@ -12,4 +12,16 @@ export class TasksService {
   async getTaskById(id: string): Promise<Task> {
     return this.taskEntityRepository.findById(id);
   }
+
+  createTask(createTaskDto: CreateTaskDto): Promise<Task> {
+    return this.taskEntityRepository.insert(createTaskDto);
+  }
+
+  deleteTask(id: string): Promise<void> {
+    return this.taskEntityRepository.delete(id);
+  }
+
+  // async updateTaskStatus(id: string, status: TaskStatus): Promise<Task> {
+  //   return this.taskEntityRepository.updateTaskStatus(id, status);
+  // }
 }
