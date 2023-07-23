@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { IsEnum, IsOptional, IsString } from 'class-validator';
 import { TaskStatus } from '../task-status.enum';
 
