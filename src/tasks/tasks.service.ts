@@ -26,7 +26,7 @@ export class TasksService {
     return this.taskEntityRepository.updateTaskStatus(id, status);
   }
 
-  getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
-    return this.taskEntityRepository.getTasks(filterDto);
+  getTasks(filterDto: GetTasksFilterDto, user: User): Promise<Task[]> {
+    return this.taskEntityRepository.getTasks(filterDto, user);
   }
 }
