@@ -21,7 +21,11 @@ export class TasksService {
     return this.taskEntityRepository.delete(id);
   }
 
-  async updateTaskStatus(id: string, status: TaskStatus): Promise<Task> {
+  updateTaskStatus(id: string, status: TaskStatus): Promise<Task> {
     return this.taskEntityRepository.updateTaskStatus(id, status);
+  }
+
+  getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
+    return this.taskEntityRepository.getTasks(filterDto);
   }
 }

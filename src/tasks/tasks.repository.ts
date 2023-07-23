@@ -50,7 +50,7 @@ export class TaskRepository {
     return task;
   }
 
-  async findAll(filterDto: GetTasksFilterDto): Promise<Task[]> {
+  async getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
     const { status, search } = filterDto;
     const query = this.taskEntityRepository.createQueryBuilder('task');
 
@@ -66,6 +66,7 @@ export class TaskRepository {
     }
 
     const tasks = await query.getMany();
+
     return tasks;
   }
 }
