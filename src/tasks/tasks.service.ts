@@ -10,20 +10,20 @@ import { User } from 'src/auth/user.entity';
 export class TasksService {
   constructor(private taskEntityRepository: TaskRepository) {}
 
-  async getTaskById(id: string): Promise<Task> {
-    return this.taskEntityRepository.findById(id);
+  async getTaskById(id: string, user: User): Promise<Task> {
+    return this.taskEntityRepository.findById(id, user);
   }
 
   createTask(createTaskDto: CreateTaskDto, user: User): Promise<Task> {
     return this.taskEntityRepository.insert(createTaskDto, user);
   }
 
-  deleteTask(id: string): Promise<void> {
-    return this.taskEntityRepository.delete(id);
+  deleteTask(id: string, user: User): Promise<void> {
+    return this.taskEntityRepository.delete(id, user);
   }
 
-  updateTaskStatus(id: string, status: TaskStatus): Promise<Task> {
-    return this.taskEntityRepository.updateTaskStatus(id, status);
+  updateTaskStatus(id: string, status: TaskStatus, user: User): Promise<Task> {
+    return this.taskEntityRepository.updateTaskStatus(id, status, user);
   }
 
   getTasks(filterDto: GetTasksFilterDto, user: User): Promise<Task[]> {
